@@ -1,7 +1,8 @@
 import React from 'react'
 import Employee from './Employee'
 import Table from 'react-bootstrap/Table';
-
+import { useLocation } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import { BiGroup } from "react-icons/bi";
 import { ImBin } from "react-icons/im";
@@ -9,6 +10,7 @@ import { BsFillPencilFill } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom';
 
 function Home() {
+    const location=useLocation()
     const history = useNavigate();
     const handleDelete = (id) => {
         alert('deleted')
@@ -26,7 +28,16 @@ function Home() {
         localStorage.setItem("salary", JSON.stringify(salary));
     }
     return (
+
+        
+      
+        
         <div >
+            <span className="text">      Hi,{location.state.id} </span>
+        <NavLink to={"/"}><button typeof="submit" className="btn2 ">Sign Up</button>
+        
+        </NavLink>
+      
             <h1 className='text-light text-center mt-5'>Employee Management</h1>
             
             <Link to={'/add'}>
@@ -66,6 +77,7 @@ function Home() {
                 </tbody>
             </Table>
         </div>
+        
     )
 }
 

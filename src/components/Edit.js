@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 function Edit() {
   const [id, setId] = useState('')
   const [uname, setUname] = useState('')
